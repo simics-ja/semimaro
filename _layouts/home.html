@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<div class="container box">
+  <div class="title is-size-4 has-text-centered">News</div>
+  <hr>
+  <div>
+    {{content}}
+  </div>
+</div>
+
+{%- if site.posts.size > 0 -%}
+<div class="container box">
+  <div class="title is-size-4 has-text-centered">Recent Posts</div>
+  <hr>
+  {%- for post in site.posts limit:5 -%}
+  <div class="m-b-4">
+    <div>
+      <a href="{{ post.url | relative_url }}">
+        {{ post.title | escape }}
+      </a>
+      <span class="tag">{{ post.date | date: "%Y/%m/%d" }}</span>
+    </div>
+    {%- if site.show_excerpts -%}
+    <div class="is-size-7 m-t-6">
+      {{ post.excerpt | strip_html | escape | slice: 0, 200 }}
+      {%- assign excerpt_size = post.excerpt | size -%}
+      {%- if excerpt_size > 200 -%}
+        ...
+      {%- endif -%}
+    </div>
+    {%- endif -%}
+  </div>
+  {%- endfor -%}
+</div>
+{%- endif -%}

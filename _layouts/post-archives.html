@@ -1,0 +1,38 @@
+---
+layout: default
+---
+{% include posts-variables.html %}
+
+<div class="container">
+  <div class="container">
+    {% assign tags_page = site.pages | where: "path", "tags.md" | first %}
+    月別 | <a href="{{ tags_page.url | relative_url }}">タグ</a>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="box">
+      {% for dateid in dateids %}
+        {% assign y_m = dateid | split: "-" %}
+        <div class="is-size-4" id="{{dateid}}">{{y_m[0]}}年{{y_m[1]}}月</div>
+        <ul class="list-marker-none">
+        {% for post in site.posts %}
+          {% assign pyear = post.date | date: "%Y" %}
+          {% assign pmonth = post.date | date: "%m" %}
+          {% assign pdate = post.date | date: "%d" %}
+    
+          {% if y_m[0] == pyear and y_m[1] == pmonth %}
+            <li>
+              <a href="{{ post.url | relative_url }}">{{post.title}}</a>
+              <span class="tag">{{post.date | date: "%Y/%m/%d"}}</span>
+            </li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="column is-one-third">
+      {% include archive-window.html %}
+    </div>
+  </div>
+</div>

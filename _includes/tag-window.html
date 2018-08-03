@@ -1,0 +1,12 @@
+<div class="box">
+  <div class="is-size-6">
+    タグ
+  </div>
+  <div>
+    {% for tag in tags %}
+      {% assign tags = site.pages | where: "path", "tags.md" | first %}
+      {% assign dest = tags.url | append: "#" | append: tag | relative_url %}
+      <a class="tag" href="{{dest}}">{{tag | escape}}</a>
+    {% endfor %}
+  </div>
+</div>

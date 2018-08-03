@@ -1,0 +1,76 @@
+# Semimaro is a simple, responsive Jekyll theme for researchers.
+# This config file is used for site settings.
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.profile.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Semimaro
+copyright: (c) 2018 Hiroshi Yamada
+lang: ja-JP
+
+# Please comment out url variables when you upload the files in _site directory to a web server other than GitHub Pages.
+# If you upload your site to https://your-domain.com/site-root, it is as follows:
+# url: https://your-domain.com
+# baseurl: /site-root
+
+# profile variables are used in About page.
+profile:
+  name: 山田浩史
+  name_en: Hiroshi Yamada
+  position: PhD student
+  picture: assets/images/profile.jpg
+  affiliation: Ruby大学 工学研究科 知能情報学専攻 Jekyll研究室
+  affiliation_en: Jekyll Lab. Graduate School of Engineering, Ruby University
+  email: email "at" example.com
+  # social account setting
+  # dribbble: username
+  facebook: FacebookJapan
+  # flickr: username
+  github: github
+  # instagram: username
+  # linkedin: username
+  # pinterest: usename
+  twitter: &twitter_username TwitterJP
+  # googleplus: username
+
+# Post-url format setting
+# Usage: https://jekyllrb.com/docs/permalinks/
+permalink: /blog/posts/:categories/:year/:month/:day/:hour-:minute-:second:output_ext
+
+# Navbar item setting
+# Nested items make dropdown menu.
+navitem:
+  - 
+    - about-ja.md
+    - about-en.md
+  - blog.md
+  - publication.md
+
+# If you enable google analytics, comment out the following line:
+# google_analytics_tracking_id: xx-xxxxxxxxx-x
+
+# If you enable Disqus comment system, comment out the following line:
+# disqus_shortname: your_shortname
+
+# SEO settings by jekyll-seo-tag
+# Usage: https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+twitter: 
+  username: *twitter_username
+  card: summary
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: assets/images/default-card.jpg # This image is shown in social media posting.
+
+# Build settings
+# If you show the excerpts of your posts in top page, please set "show_excerpts: true".
+show_excerpts: true
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap

@@ -1,0 +1,54 @@
+<header>
+  {% assign page_paths = site.navitem %}
+
+  <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="{{ "/" | relative_url }}" class="navbar-item has-text-weight-bold">{{site.title | escape}}</a>
+        <div id="navbarBurger" class="navbar-burger burger" data-target="navMenuIndex">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div id="navMenuIndex" class="navbar-menu">
+        <div class="navbar-end">
+          {% if page_paths %}
+            {% for path in page_paths %}
+              {% if path.first %}
+                <div class="navbar-item has-dropdown is-hoverable">
+                {% assign my_page = site.pages | where: "path", path.first | first %}
+                  <a class="navbar-link" href="{{ my_page.url | relative_url }}">
+                  {% if my_page.title %}
+                    {{ my_page.title | escape }}
+                  {% endif %}
+                  </a>
+                  <div class="navbar-dropdown is-boxed">
+                  {% for eachlang in path %}
+                    {% assign my_page = site.pages | where: "path", eachlang | first %}
+                  <a class="navbar-item" href="{{ my_page.url | relative_url }}">
+                    {% assign page_lang = my_page.lang | slice: 0, 2 | downcase %}
+                    {% if page_lang == "ja" %}
+                      {{"Japanese"}}
+                    {% elsif page_lang == "en" %}
+                      {{"English"}}
+                    {% else %}
+                      {{my_page.title}}
+                    {% endif%}
+                  </a>
+                  {% endfor %}
+                  </div>
+                </div>
+              {% else%}
+                {% assign my_page = site.pages | where: "path", path | first %}
+                {% if my_page.title %}
+                  <a href="{{ my_page.url | relative_url }}" class="navbar-item"><span>{{ my_page.title | escape }}</span></a>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

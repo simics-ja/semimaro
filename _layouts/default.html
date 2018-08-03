@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "ja-JP" }}">
+{% include head.html %}
+
+<body>
+  {% include header.html %}
+  <main>
+    <div class="container">
+      <div class="content m-t-3 m-b-3 m-l-5 m-r-5">
+        {{ content }}
+      </div>
+    </div>
+  </main>
+  {% include footer.html %}
+  {% include script.html %}
+  {% include google-analytics.html %}
+</body>
+</html>

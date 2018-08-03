@@ -1,0 +1,18 @@
+<div class="box">
+  <div class="is-size-6">
+    月別アーカイブ
+  </div>
+  <div>
+    <div class="select">
+      <select onChange="top.location.href=value">
+        <option value=""> --- </option>
+        {% for dateid in dateids %}
+          {% assign y_m = dateid | split: "-" %}
+          {% assign archives = site.pages | where: "path", "blog.md" | first %}
+          {% assign dest = archives.url | append: "#" | append: dateid | relative_url %}
+          <option value="{{dest}}">{{y_m[0] | escape}}年{{y_m[1] | escape}}月({{ids_counter[forloop.index0] | escape}})</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>

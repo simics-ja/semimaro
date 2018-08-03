@@ -1,0 +1,15 @@
+<div class="box">
+    <div class="is-size-6">
+      最新の投稿
+    </div>
+    <div>
+      {%- for post in site.posts limit:5 -%}
+          <!-- <span class="post-meta">{{ post.date | date: date_format }}</span> -->
+          <div>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </div>
+        {%- endfor -%}
+  </div>
+</div>

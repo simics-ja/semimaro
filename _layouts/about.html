@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="container content box">
+  <a href=""></a>
+  <div class="columns">
+    <div class="column is-one-fifth">
+      <img src="{{ site.profile.picture | relative_url}}" alt="">
+    </div>
+    <div class="column">
+      <div class="is-size-5 has-text-weight-semibold">{{site.profile.name}} / {{site.profile.name_en}} ({{site.profile.position}})</div>
+      <div class="is-size-6">
+        {%- if page.lang == "en" -%}
+        {{site.profile.affiliation_en}}
+        {%- else -%}
+        {{site.profile.affiliation}}
+        {%- endif -%}
+      </div>
+      {%- if site.profile.email -%}<div><span class="icon"><i class="far fa-envelope"></i></span><a href="mailto:{{ site.profile.email }}">{{ site.profile.email }}</a></div>{%- endif -%}
+      {%- include social.html -%}
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  {{content}}
+</div>

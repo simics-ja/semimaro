@@ -1,0 +1,53 @@
+// If you customize Bulma, please reffer to https://bulma.io/documentation/overview/customize/
+// Bulma variables: https://bulma.io/documentation/overview/variables/
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+$family-sans-serif: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "游ゴシック体", "Yu Gothic", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+$family-primary: $family-sans-serif;
+
+$body-line-height: 1.8;
+
+$column-gap: 1.5rem;
+
+$link: darken($cyan, 20%);
+
+// post-content style
+div.post-content {
+  h1, h2, h3, h4, h5, h6 {
+    color: $grey-darker
+  }
+
+  // headings style
+  h1 {
+    padding: 0.25em 0.5em;
+    background: transparent;
+    border-left: solid 5px $cyan; // left side line
+  }
+  h2 {
+    border-bottom: solid 1px $grey-lighter;
+    padding-bottom: 0.1rem;
+  }
+
+  // code block style
+  code.highlighter-rouge {
+    color: darken($blue, 20%);
+    border-radius: $radius;
+    background-color: $light;
+    border: solid 1px $grey-lighter;
+  }
+  div.highlighter-rouge {
+    margin-bottom: 1rem;
+    border-radius: $radius;
+    background-color: $light;
+    border: solid 1px $grey-lighter;
+  }
+  div.highlight {
+    border-radius: $radius;
+  }
+  pre.highlight {
+    padding: 0.75rem 0.75rem
+  }
+  code.hljs {
+    background-color: $light;
+  }
+}

@@ -1,0 +1,35 @@
+---
+layout: default
+---
+{% include posts-variables.html %}
+
+<div class="container">
+  <div class="container">
+      {% assign archives_page = site.pages | where: "path", "blog.md" | first %}
+      <a href="{{ archives_page.url | relative_url }}">月別</a> | タグ
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="box">
+      {% for tag in tags %}
+        <div class="is-size-4" id="{{tag}}">{{tag}}</div>
+        <ul class="list-marker-none">
+          {% for post in site.posts %}
+            {% for ptag in post.tags %}
+              {% if ptag == tag %}
+                <li>
+                  <a href="{{ post.url | relative_url }}">{{post.title | escape}}</a>
+                  <span class="tag">{{post.date | date: "%Y/%m/%d"}}</span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        </ul>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="column is-one-third">
+      {% include tag-window.html %}
+    </div>
+  </div>
+</div>

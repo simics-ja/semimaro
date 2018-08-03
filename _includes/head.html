@@ -1,0 +1,21 @@
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% feed_meta %}
+  <title>
+    {% if page.title %}
+      {{ page.title | escape}} - 
+    {% elsif page.description %}
+      {{ page.description | escape}} - 
+    {% endif %}
+    {{ site.title | escape}}
+  </title>
+  <!-- Font Awesome v5.0.13 -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <!-- highlight.js v9.12.0 -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <!-- User's css -->
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {% seo %}
+</head>
